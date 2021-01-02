@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>MyAdapter.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #0000ff;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MyAdapter.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.example.a3tablayouts;
+
+<span class="s0">import </span>android.content.Context;
+
+<span class="s0">import </span>androidx.annotation.NonNull;
+<span class="s0">import </span>androidx.fragment.app.Fragment;
+<span class="s0">import </span>androidx.fragment.app.FragmentManager;
+<span class="s0">import </span>androidx.fragment.app.FragmentPagerAdapter;
+
+<span class="s0">public class </span>MyAdapter <span class="s0">extends </span>FragmentPagerAdapter {
+
+    Context context;
+    <span class="s0">int </span>totalTabs;
+
+    <span class="s0">public </span>MyAdapter(Context c, FragmentManager fm,<span class="s0">int </span>totalTabs) {
+        <span class="s0">super</span>(fm);
+        context = c;
+        <span class="s0">this</span>.totalTabs = totalTabs;
+    }
+
+    @Override
+    <span class="s0">public </span>Fragment getItem(<span class="s0">int </span>position) {
+
+        <span class="s0">switch </span>(position){
+            <span class="s0">case </span><span class="s2">0</span>:
+            Football footballFragment = <span class="s0">new </span>Football();
+            <span class="s0">return </span>footballFragment;
+
+            <span class="s0">case </span><span class="s2">1</span>:
+                Cricket cricketFragment = <span class="s0">new </span>Cricket();
+                <span class="s0">return </span>cricketFragment;
+
+            <span class="s0">case </span><span class="s2">2</span>:
+                Nba nbaFragment = <span class="s0">new </span>Nba();
+                <span class="s0">return </span>nbaFragment;
+            <span class="s0">default</span>:
+            <span class="s0">return null</span>;
+        }
+    }
+
+    @Override
+    <span class="s0">public int </span>getCount() {
+        <span class="s0">return </span>totalTabs;
+    }
+}</pre>
+</body>
+</html>
